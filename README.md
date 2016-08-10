@@ -1,2 +1,2 @@
 # jd-profile-theme
-October cms theme for my profile page.
+October cms theme for my personal profile page.
