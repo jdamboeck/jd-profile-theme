@@ -1,0 +1,21 @@
+{
+  "name": "jd-bootstrap",
+  "homepage": "",
+  "authors": [
+    "Johannes Damboeck"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "*",
+    "bootstrap": "*",
+    "jquery": "*"
+  }
+}
