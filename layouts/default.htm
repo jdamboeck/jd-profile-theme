@@ -1,0 +1,43 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="author" content="Johannes Damböck">
+    <meta name="description" content="{{ this.page.description }}">
+    <title>{{ this.page.title }}</title>
+    <link href="{{ ['assets/less/app.less']|theme }}" rel="stylesheet">
+{% styles %}
+
+
+</head>
+
+<body>
+{% page %}
+
+<script src="{{ [
+    'assets/vendor/jquery/dist/jquery.js',
+    'assets/vendor/bootstrap/js/transition.js',
+    'assets/vendor/bootstrap/js/alert.js',
+    'assets/vendor/bootstrap/js/button.js',
+    'assets/vendor/bootstrap/js/carousel.js',
+    'assets/vendor/bootstrap/js/collapse.js',
+    'assets/vendor/bootstrap/js/dropdown.js',
+    'assets/vendor/bootstrap/js/modal.js',
+    'assets/vendor/bootstrap/js/tooltip.js',
+    'assets/vendor/bootstrap/js/popover.js',
+    'assets/vendor/bootstrap/js/scrollspy.js',
+    'assets/vendor/bootstrap/js/tab.js',
+    'assets/vendor/bootstrap/js/affix.js',
+    '@framework',
+    '@framework.extras',
+    'assets/js/app.js',
+]|theme }}"></script>
+{% scripts %}
+</body>
+
+</html>
