@@ -1,43 +1,104 @@
 /*
- * Customize your site here.
+ * Site Style.
  */
+@cPrimary1: #EBCB8B;
+@cPrimary2: #BF616A;
+@cAccent1: #B282AB;
+@cAccent2: #303644;
+@cAccent3: #2B303B;
+@fSizeHead: 28px;
+@fSizeBody: 16px;
+@fSizeNav:  15px;
+@fFamilyHead: Ubuntu Heavy;
+@fFamilyBody: Roboto Condensed;
+@link-color: @cAccent1;
+@link-color-hover: darken(@link-color, 10%);
 
 body {
-    text-align: center;
-    background-color: #2B303B;
-    color: #EBCB8B;
-    font-size: 30px;
-    line-height: 30px;
+    font-family: @fFamilyBody;
+    font-size: @fSizeBody;
+    background-color: @cAccent2;
+    color: @cPrimary1;
+}
+// Usage
+.link,
+a {
+    color: @link-color;
+}
+a:hover {
+    color: @link-color-hover;
+}
+.widget {
+    color: @cPrimary2;
+    background: @link-color;
+}
+h1, h2, h3 {
+    color: @cPrimary2;
+}
+
+
+.navigation {
+    li{
+        margin: 0;
+        padding: 6px 0 5px 10px;
+    }
+    margin: 0;
+    padding: 0;
+    font-family: @fFamilyHead;
+    font-size: @fSizeNav;
+    font-weight: bolder;
+    text-transform: uppercase;
+    list-style: none;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: flex-end;
+    a {
+        text-decoration: none;
+        display: block;
+        color: @cPrimary1;
+    }
+    a:hover {
+        color: @link-color;
+    }
 }
 
 #jd-head {
-    background-color: #EBCB8B;
-    color: #2B303B;
-    height: 60px;
-    line-height: 71px;
+    background-color: @cPrimary1;
+    color: @cAccent2;
 }
-
-#jd-head > * {
-    line-height: 30px;
-}
-
 #jd-brand {
-
-}
-
-#jd-brand {
-    color: #2B303B;
-    font-family: Roboto Condensed;
-    font-style: normal;
+    font-family: @fFamilyBody;
+    font-size: @fSizeHead;
     letter-spacing: -0.05em;
-    text-align: left;
-    display:inline-block;
-    vertical-align:bottom;
-    width:100%; /* Let it be a block */
-    span {
-        font-size: .4em;
-        font-weight: bolder;
-        text-transform: uppercase;
-        letter-spacing: -0.01em;
+    padding: 10px 12px 10px 12px;
+}
+#jd-body {
+    padding: 10px;
+    color: lighten(@cPrimary1, 10%);;
+}
+/* Large */
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: flex-end;
+}
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .navigation {
+        /* When on medium sized screens, we center it by evenly distributing empty space around items */
+        justify-content: flex-end;
+    }
+}
+/* Small screens */
+@media all and (max-width: 500px) {
+    .navigation {
+        /* On small screens, we are no longer using row direction but column */
+        flex-direction: column;
     }
 }
