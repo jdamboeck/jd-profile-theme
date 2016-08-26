@@ -1,39 +1,78 @@
 /*
- * Site Style.
+ * Theme Variables.
  */
-@cPrimary1: #EBCB8B;
-@cPrimary2: #BF616A;
-@cAccent1: #B282AB;
-@cAccent2: #303644;
-@cAccent3: #2B303B;
-@fSizeHead: 28px;
-@fSizeBody: 16px;
-@fSizeNav:  15px;
-@fFamilyHead: Ubuntu Heavy;
-@fFamilyBody: Roboto Condensed;
-@link-color: @cAccent1;
-@link-color-hover: darken(@link-color, 10%);
+@theme-color1: #EBCB8B;
+@theme-color2: #BF616A;
+@theme-color3: #B282AB;
+@theme-color4: #303644;
+@theme-color5: #2B303B;
+
+@theme-font-size-base: 18px;
+@theme-font-size1: 16px;
+@theme-font-size2: 20px;
+@theme-font-size3: 36px;
+@theme-font-family1: Roboto Condensed;
+@theme-font-family2: Ubuntu Heavy;
+
+@theme-highlight: @theme-color2;
+@link-color: @theme-color1;
+@link-color-hover: darken(@link-color, 20%);
+@body-color: @theme-color1;
+@body-bgcolor: @theme-color5;
+@body-font-size: @theme-font-size-base;
+@body-font-family: @theme-font-family1;
+@headings-font-size: @theme-font-size3;
+@headings-font-family: @theme-font-family1;
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: @headings-font-family;
+    font-weight: bold;
+    display:     block;
+    margin:      0.5em 0 0.5em 0;
+    color:       @theme-highlight;
+}
+
+p {
+    font-size: @body-font-size;
+}
+
+.generate-headings(@n, @i: 1) when (@i =< @n) {
+    h@{i} {
+        font-size: round((@headings-font-size - ((@i - 1) * 2 )),2);
+    }
+    .generate-headings(@n, (@i + 1));
+}
+.generate-headings(6);
 
 body {
-    font-family: @fFamilyBody;
-    font-size: @fSizeBody;
-    background-color: @cAccent2;
-    color: @cPrimary1;
+    font-size:        @theme-font-size-base;
+    font-family:      @body-font-family;
+    background-color: @body-bgcolor;
+    color:            @body-color;
 }
-// Usage
-.link,
-a {
-    color: @link-color;
+#jd-head {
+     background-color: @body-color;
+     color: @body-bgcolor;
 }
-a:hover {
+#jd-brand {
+     font-family: @body-font-family;
+     font-size: @body-font-size;
+     letter-spacing: -0.05em;
+     padding: 10px 12px 10px 12px;
+}
+#jd-body {
+    padding: 10px;
+    blockquote {
+        color: lighten(@body-color, 10%);
+    }
+}
+
+.link, a {
+  color: @link-color;
+  text-decoration: none;
+  &:hover {
     color: @link-color-hover;
-}
-.widget {
-    color: @cPrimary2;
-    background: @link-color;
-}
-h1, h2, h3 {
-    color: @cPrimary2;
+  }
 }
 
 
@@ -44,8 +83,8 @@ h1, h2, h3 {
     }
     margin: 0;
     padding: 0;
-    font-family: @fFamilyHead;
-    font-size: @fSizeNav;
+    font-family: @body-font-family;
+    font-size: @body-font-size;
     font-weight: bolder;
     text-transform: uppercase;
     list-style: none;
@@ -60,31 +99,18 @@ h1, h2, h3 {
     a {
         text-decoration: none;
         display: block;
-        color: @cPrimary1;
+        color: @link-color;
     }
     a:hover {
         color: @link-color;
     }
 }
 
-#jd-head {
-    background-color: @cPrimary1;
-    color: @cAccent2;
-}
-#jd-brand {
-    font-family: @fFamilyBody;
-    font-size: @fSizeHead;
-    letter-spacing: -0.05em;
-    padding: 10px 12px 10px 12px;
-}
-#jd-body {
-    padding: 10px;
-    color: lighten(@cPrimary1, 10%);;
-}
+
 /* Large */
 .navigation {
-    display: flex;
-    flex-flow: row wrap;
+     display: flex;
+     flex-flow: row wrap;
     /* This aligns items to the end line on main-axis */
     justify-content: flex-end;
 }
