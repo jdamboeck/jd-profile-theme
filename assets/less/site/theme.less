@@ -1,3 +1,4 @@
+@import '../../vendor/less-prefixer/prefixer';
 /*
  * Theme Variables.
  */
@@ -7,16 +8,16 @@
 @theme-color4: #303644;
 @theme-color5: #2B303B;
 
-@theme-font-size-base: 18px;
-@theme-font-size1: 16px;
-@theme-font-size2: 20px;
-@theme-font-size3: 36px;
+@theme-font-size-base: 16px;
+@theme-font-size1: @theme-font-size-base;
+@theme-font-size2: 26px;
+@theme-font-size3: 34px;
 @theme-font-family1: Roboto Condensed;
 @theme-font-family2: Ubuntu Heavy;
 
 @theme-highlight: @theme-color2;
 @link-color: @theme-color1;
-@link-color-hover: darken(@link-color, 20%);
+@link-color-hover: @theme-color2;
 @body-color: @theme-color1;
 @body-bgcolor: @theme-color5;
 @body-font-size: @theme-font-size-base;
@@ -30,10 +31,6 @@ h1, h2, h3, h4, h5, h6 {
     display:     block;
     margin:      0.5em 0 0.5em 0;
     color:       @theme-highlight;
-}
-
-p {
-    font-size: @body-font-size;
 }
 
 .generate-headings(@n, @i: 1) when (@i =< @n) {
@@ -56,9 +53,9 @@ body {
 }
 #jd-brand {
      font-family: @body-font-family;
-     font-size: @body-font-size;
+     font-size: @theme-font-size2;
      letter-spacing: -0.05em;
-     padding: 10px 12px 10px 12px;
+     padding: 10px;
 }
 #jd-body {
     padding: 10px;
@@ -84,7 +81,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: @body-font-family;
-    font-size: @body-font-size;
+    font-size: @theme-font-size1 + 2;
     font-weight: bolder;
     text-transform: uppercase;
     list-style: none;
@@ -102,7 +99,10 @@ body {
         color: @link-color;
     }
     a:hover {
-        color: @link-color;
+        color: @link-color-hover;
+    }
+    a.active{
+        .text-shadow(0px 0px 3px @body-color);
     }
 }
 
@@ -111,19 +111,18 @@ body {
 .navigation {
      display: flex;
      flex-flow: row wrap;
-    /* This aligns items to the end line on main-axis */
     justify-content: flex-end;
 }
 /* Medium screens */
 @media all and (max-width: 800px) {
     .navigation {
-        /* When on medium sized screens, we center it by evenly distributing empty space around items */
         justify-content: flex-end;
     }
 }
 /* Small screens */
 @media all and (max-width: 500px) {
     .navigation {
+        padding-top: 5px;
         /* On small screens, we are no longer using row direction but column */
         flex-direction: column;
     }
