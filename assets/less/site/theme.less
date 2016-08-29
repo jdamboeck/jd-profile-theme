@@ -2,65 +2,82 @@
 /*
  * Theme Variables.
  */
-@theme-color1: #EBCB8B;
-@theme-color2: #BF616A;
+@theme-color2: #EBCB8B;
+@theme-color1: #BF616A;
 @theme-color3: #B282AB;
-@theme-color4: #303644;
+@theme-color4: #20242D;
 @theme-color5: #2B303B;
 
-@theme-font-size-base: 16px;
-@theme-font-size1: @theme-font-size-base;
-@theme-font-size2: 26px;
-@theme-font-size3: 34px;
-@theme-font-family1: Roboto Condensed;
-@theme-font-family2: Ubuntu Heavy;
-
+@theme-font-size-tiny: 12px;
+@theme-font-size-regular: 16px;
+@theme-font-size-medium: 24px;
+@theme-font-size-large: 34px;
+@theme-font-family1: Roboto Condensed, Samsung Sans, Condensed, Sans;
+@theme-font-family2: Roboto;
+@theme-font-family3: Aller;
 @theme-highlight: @theme-color2;
+
+@body-color: @theme-color3;
+@body-bgcolor: @theme-color5;
+@head-color: @theme-color1;
 @link-color: @theme-color1;
 @link-color-hover: @theme-color2;
-@body-color: @theme-color1;
-@body-bgcolor: @theme-color5;
-@body-font-size: @theme-font-size-base;
-@body-font-family: @theme-font-family1;
-@headings-font-size: @theme-font-size3;
-@headings-font-family: @theme-font-family1;
+
+@body-font-size: @theme-font-size-regular;
+@body-font-family: @theme-font-family2;
+@head-font-size: @theme-font-size-large;
+@head-font-family: @theme-font-family1;
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: @headings-font-family;
+    font-family: @head-font-family;
     font-weight: bold;
     display:     block;
-    margin:      0.5em 0 0.5em 0;
-    color:       @theme-highlight;
+    margin:      0.67em 0 0.67em 0;
+    color:       @head-color;
 }
 
-.generate-headings(@n, @i: 1) when (@i =< @n) {
+.generate-head(@n, @i: 1) when (@i =< @n) {
     h@{i} {
-        font-size: round((@headings-font-size - ((@i - 1) * 2 )),2);
+        font-size: round((@head-font-size - ((@i - 1) * 2 )),2);
     }
-    .generate-headings(@n, (@i + 1));
+    .generate-head(@n, (@i + 1));
 }
-.generate-headings(6);
+.generate-head(6);
 
 body {
-    font-size:        @theme-font-size-base;
+    font-size:        @theme-font-size-regular;
     font-family:      @body-font-family;
     background-color: @body-bgcolor;
     color:            @body-color;
+    margin: 0;
+    padding: 0;
+    line-height: 1.67em
+}
+ul {
+    line-height: 1.67em;
+    letter-spacing: -0.01em;
 }
 #jd-head {
-     background-color: @body-color;
-     color: @body-bgcolor;
+     background-color: @head-color;
+     color: @theme-color4;
 }
 #jd-brand {
-     font-family: @body-font-family;
-     font-size: @theme-font-size2;
+     font-family: @head-font-family;
+     font-size: @theme-font-size-medium;
      letter-spacing: -0.05em;
-     padding: 10px;
+     padding: 12px;
 }
 #jd-body {
-    padding: 10px;
+    padding: 20px;
     blockquote {
-        color: lighten(@body-color, 10%);
+        background-color: @theme-color4;
+        font-family: @theme-font-family3;
+        font-size: @theme-font-size-medium;
+        text-align: center;
+        color: lighten(@body-color, 20%);
+        line-height: 1.67em;
+        padding: 12px;
+        margin: 12px
     }
 }
 
@@ -79,9 +96,9 @@ body {
         padding: 6px 0 5px 10px;
     }
     margin: 0;
-    padding: 0;
+    padding: 0 10px 0 0;
     font-family: @body-font-family;
-    font-size: @theme-font-size1 + 2;
+    font-size: @theme-font-size-regular;
     font-weight: bolder;
     text-transform: uppercase;
     list-style: none;
@@ -102,7 +119,8 @@ body {
         color: @link-color-hover;
     }
     a.active{
-        .text-shadow(0px 0px 3px @body-color);
+        color: @link-color-hover;
+        .text-shadow(0px 0px 3px @link-color-hover);
     }
 }
 
