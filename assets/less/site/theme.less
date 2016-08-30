@@ -1,9 +1,10 @@
-@import '../../vendor/less-prefixer/prefixer';
+@import '../less-prefixer/prefixer';
 /*
  * Theme Variables.
  */
-@theme-color2: #EBCB8B;
+
 @theme-color1: #BF616A;
+@theme-color2: #EBCB8B;
 @theme-color3: #B282AB;
 @theme-color4: #20242D;
 @theme-color5: #2B303B;
@@ -20,6 +21,7 @@
 @body-color: @theme-color3;
 @body-bgcolor: @theme-color5;
 @head-color: @theme-color1;
+@head-bgcolor: @theme-color2;
 @link-color: @theme-color1;
 @link-color-hover: @theme-color2;
 
@@ -33,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     display:     block;
     margin:      0.67em 0 0.67em 0;
-    color:       @head-color;
+    color:       @head-bgcolor;
 }
 
 .generate-head(@n, @i: 1) when (@i =< @n) {
@@ -55,20 +57,23 @@ body {
 }
 ul {
     line-height: 1.67em;
-    letter-spacing: -0.01em;
+    li {
+        list-style-type: square;
+    }
 }
+
 em {
     color: @link-color-hover;
 }
 #jd-head {
-     background-color: @head-color;
+     background-color: @head-bgcolor;
      color: @theme-color4;
 }
 #jd-brand {
      font-family: @head-font-family;
      font-size: @theme-font-size-medium;
      letter-spacing: -0.05em;
-     padding: 12px;
+     padding: 10px;
 }
 #jd-body {
     padding: 20px;
@@ -79,7 +84,7 @@ em {
         text-align: center;
         color: @theme-color1;
         line-height: 1.67em;
-        padding: 12px;
+        padding: 10px;
         margin: 0px
     }
 }
@@ -93,11 +98,13 @@ em {
 }
 
 
-.navigation {
+#jd-nav-top {
     li{
+        list-style: none;
         margin: 0;
-        padding: 6px 0 5px 10px;
+        padding: 5px 0 5px 10px;
     }
+    background-color: @theme-color1;
     margin: 0;
     padding: 0 10px 0 0;
     font-family: @body-font-family;
@@ -106,17 +113,13 @@ em {
     text-transform: uppercase;
     list-style: none;
     margin: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    justify-content: flex-end;
+    .flex-block();
+    .flex-flow(row wrap);
+    .justify-content(flex-end);
     a {
         text-decoration: none;
         display: block;
-        color: @link-color;
+        color: @theme-color5;
     }
     a:hover {
         color: @link-color-hover;
@@ -129,22 +132,22 @@ em {
 
 
 /* Large */
-.navigation {
-     display: flex;
-     flex-flow: row wrap;
-    justify-content: flex-end;
+#jd-nav-top {
+    .flex-block();
+    .flex-flow(row wrap);
+    .justify-content(flex-end);
 }
 /* Medium screens */
 @media all and (max-width: 800px) {
-    .navigation {
-        justify-content: flex-end;
+    #jd-nav-top {
+        .justify-content(flex-end);
     }
 }
 /* Small screens */
 @media all and (max-width: 500px) {
-    .navigation {
+    #jd-nav-top {
         padding-top: 5px;
         /* On small screens, we are no longer using row direction but column */
-        flex-direction: column;
+        .flex-direction(column);
     }
 }
