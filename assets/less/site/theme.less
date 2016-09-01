@@ -9,26 +9,6 @@
 @theme-color4: #20242D;
 @theme-color5: #2B303B;
 
-@theme-font-size-tiny: 12px;
-@theme-font-size-regular: 16px;
-@theme-font-size-medium: 24px;
-@theme-font-size-large: 36px;
-@theme-font-family1: Roboto Condensed;
-@theme-font-family2: Roboto;
-@theme-font-family3: Envy Code R;
-@theme-highlight: @theme-color2;
-
-@body-color: @theme-color3;
-@body-bgcolor: @theme-color5;
-@head-color: @theme-color1;
-@head-bgcolor: @theme-color2;
-@link-color: @theme-color1;
-@link-color-hover: @theme-color2;
-
-@body-font-size: @theme-font-size-regular;
-@body-font-family: @theme-font-family2;
-@head-font-size: @theme-font-size-large;
-@head-font-family: @theme-font-family1;
 
 h1, h2, h3, h4, h5, h6 {
     font-family: @head-font-family;
@@ -37,26 +17,12 @@ h1, h2, h3, h4, h5, h6 {
     margin:      0.67em 0 0.67em 0;
     color:       @head-bgcolor;
 }
-
-.generate-head(@n, @i: 1) when (@i =< @n) {
-    h@{i} {
-        font-size: round((@head-font-size - ((@i - 1) * 2 )),2);
-    }
-    .generate-head(@n, (@i + 1));
-}
-.generate-head(6);
+);
 
 body {
-    font-size:        @theme-font-size-regular;
-    font-family:      @body-font-family;
-    background-color: @body-bgcolor;
-    color:            @body-color;
-    margin: 0;
-    padding: 0;
-    line-height: 1.67em
 }
+
 ul {
-    line-height: 1.67em;
     li {
         list-style-type: square;
     }
