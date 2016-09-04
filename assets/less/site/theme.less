@@ -2,24 +2,14 @@
 /*
  * Theme Variables.
  */
-
 @theme-color1: #BF616A;
 @theme-color2: #EBCB8B;
 @theme-color3: #B282AB;
 @theme-color4: #20242D;
 @theme-color5: #2B303B;
 
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: @head-font-family;
-    font-weight: bold;
-    display:     block;
-    margin:      0.67em 0 0.67em 0;
-    color:       @head-bgcolor;
-}
-);
-
 body {
+    padding-top: 50px;
 }
 
 ul {
@@ -28,92 +18,27 @@ ul {
     }
 }
 
-em {
-    color: @link-color-hover;
+.navbar-brand {
+    letter-spacing: -0.05em;
 }
-#jd-head {
-     background-color: @head-bgcolor;
-     color: @theme-color4;
-}
-#jd-brand {
-     font-family: @head-font-family;
-     font-size: @theme-font-size-medium;
-     letter-spacing: -0.05em;
-     padding: 10px;
-}
-#jd-body {
-    padding: 20px;
-    blockquote {
-        background-color: @theme-color4;
-        font-family: @theme-font-family3;
-        font-size: 1em;
-        text-align: center;
-        color: @theme-color1;
-        line-height: 1.67em;
-        padding: 10px;
-        margin: 0px
-    }
-}
-
-.link, a {
-  color: @link-color;
-  text-decoration: none;
-  &:hover {
-    color: @link-color-hover;
-  }
-}
-
 
 #jd-nav-top {
-    li{
-        list-style: none;
-        margin: 0;
-        padding: 5px 0 5px 10px;
-    }
-    background-color: @theme-color1;
-    margin: 0;
-    padding: 0 10px 0 0;
-    font-family: @body-font-family;
-    font-size: @theme-font-size-regular;
     font-weight: bolder;
     text-transform: uppercase;
-    list-style: none;
-    margin: 0;
-    .flex-block();
-    .flex-flow(row wrap);
-    .justify-content(flex-end);
-    a {
-        text-decoration: none;
-        display: block;
-        color: @theme-color5;
-    }
-    a:hover {
-        color: @link-color-hover;
-    }
-    a.active{
-        color: @link-color-hover;
-        .text-shadow(0px 0px 3px @link-color-hover);
-    }
 }
 
-
-/* Large */
-#jd-nav-top {
-    .flex-block();
-    .flex-flow(row wrap);
-    .justify-content(flex-end);
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: @theme-color4;
+}
+em {
+    color: @theme-color2;
+}
+blockquote {
+    background-color: @theme-color4;
+    text-align: center;
+    color: @theme-color1;
 }
 /* Medium screens */
-@media all and (max-width: 800px) {
-    #jd-nav-top {
-        .justify-content(flex-end);
-    }
-}
+@media all and (max-width: 800px) {}
 /* Small screens */
-@media all and (max-width: 500px) {
-    #jd-nav-top {
-        padding-top: 5px;
-        /* On small screens, we are no longer using row direction but column */
-        .flex-direction(column);
-    }
-}
+@media all and (max-width: 500px) {}

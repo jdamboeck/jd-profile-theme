@@ -8,23 +8,31 @@ is_hidden = 0
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    Johannes <b>Damb&ouml;ck</b>
-                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jd-nav-top">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Johannes <b>Damböck</b></a>
             </div>
-            <ul id="jd-nav-top" class="nav navbar-nav navbar-right">
-                <li><a class="start navbar-right" href="#">Profil</a></li>
-                <li><a class="navbar-right" href="#">Experience</a></li>
-                <li><a class="navbar-right" href="#">Abilities</a></li>
-                <li><a class="navbar-right" href="#">Contact</a></li>
-            </ul>
+            <div id="jd-nav-top" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="start"><a href="#">Profil</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#jd-nav-top">Experience</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#jd-nav-top">Abilities</a></li>
+                    <li><a href="test/" data-toggle="collapse" data-target="#jd-nav-top">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
     <div id="jd-body">
         <h1>Headline</h1>
-        <p> I am an allround web developer. I am a senior programmer with good knowledge of front-end techniques. I love structure and order and I also stand for quality. I love spending time on fixing little <a href="#">details</a> and optimizing web apps. Also I like
-        working in a team, you'll learn faster and more. As the saying goes:
-        <blockquote>'Tomorrow we will <em>run</em> faster, <em>stretch</em> out our arms farther. So we beat on, boats against the current, borne back ceaselessly into the past.'</blockquote></p>
+        <p> I am an allround web developer. I am a senior programmer with good knowledge of front-end techniques. I love structure and order and I also stand for quality. I love spending time on fixing little <a href="#">details</a> and optimizing web apps.
+            Also I like working in a team, you'll learn faster and more. As the saying goes:
+            <blockquote>'Tomorrow we will <em>run</em> faster, <em>stretch</em> out our arms farther. So we beat on, boats against the current, borne back ceaselessly into the past.'</blockquote>
+        </p>
         <h3>
             Details
         </h3>

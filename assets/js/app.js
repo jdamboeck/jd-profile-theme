@@ -1,9 +1,9 @@
 $(document).ready(function() {
     $(function() {
         $('.start').addClass('active');
-            $('.navigation a').click(function() {
-            $('.navigation a').removeClass('active');
-            $(this).addClass('active');
-       });
+        $('#jd-nav-top a').click(function() {
+            $('#jd-nav-top li').removeClass('active');
+            $(this).closest('li').addClass('active');
+        });
     });
 });
