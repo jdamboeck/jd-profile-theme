@@ -12,13 +12,34 @@ description = "Default layout"
     <title>{{ this.page.title }}</title>
     <link href="{{ ['assets/less/app.less']|theme }}" rel="stylesheet">
 {% styles %}
-
-
 </head>
 
 <body>
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jd-nav-top">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Johannes <b>Damböck</b></a>
+            </div>
+            <div id="jd-nav-top" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="start"><a href="#">Profil</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#jd-nav-top"></a></li>
+                    <li><a href="#" data-toggle="collapse" data-target="#jd-nav-top">Abilities</a></li>
+                    <li><a href="test/" data-toggle="collapse" data-target="#jd-nav-top">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 {% page %}
-
+</div>
 <script src="{{ [
     'assets/vendor/jquery/dist/jquery.js',
     'assets/vendor/bootstrap/js/transition.js',
